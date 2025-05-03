@@ -14,7 +14,10 @@ console.log("🔍 ENV - User:", process.env.AZURE_SQL_USER);
 
 // App setup
 const app = express();
-app.use(cors());
+app.use(cors({
+  origin: 'https://orange-hill-03aa1b30f.6.azurestaticapps.net',
+  credentials: true // optional, only if you're using cookies or auth headers
+}));
 app.use(express.json()); // for parsing JSON
 
 // ✅ Mount /api/auth routes here
